@@ -14,9 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func goToLogin(controller: LoginSplashController) {
+        controller.videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "edinburgh_ariel", ofType: "mp4")!)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let loginController : LoginSplashController = LoginSplashController() as LoginSplashController
+        goToLogin(controller: loginController)
         return true
     }
 
@@ -42,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        let loginController : LoginSplashController = LoginSplashController() as LoginSplashController
+        goToLogin(controller: loginController)
     }
 
     // MARK: - Core Data stack
