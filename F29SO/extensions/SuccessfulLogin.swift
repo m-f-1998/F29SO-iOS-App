@@ -41,10 +41,14 @@ extension UIViewController {
             
             let nvC: UINavigationController = UINavigationController.init(rootViewController: rootCont)
             nvC.navigationBar.topItem?.title = navBarTitle
+            nvC.navigationBar.barTintColor = .black
+            nvC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             
-            UIApplication.shared.keyWindow?.rootViewController = nvC
-            UIApplication.shared.keyWindow?.makeKeyAndVisible()
-            
+            UIView.transition(with: UIApplication.shared.keyWindow!, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                UIApplication.shared.keyWindow?.rootViewController = nvC
+                UIApplication.shared.keyWindow?.makeKeyAndVisible()
+            }, completion: nil)
+
         }
     }
     

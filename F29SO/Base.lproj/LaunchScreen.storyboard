@@ -33,7 +33,7 @@ Company Ltd.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.8784313725490196" green="0.26666666666666666" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iRi-2X-PGu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0FE-Sl-bvk"/>
                             <constraint firstItem="uUa-KL-V33" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="49s-Bw-Elx"/>

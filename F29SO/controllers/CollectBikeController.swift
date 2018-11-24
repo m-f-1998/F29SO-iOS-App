@@ -7,32 +7,53 @@
 //
 
 import UIKit
+import CoreNFC
 
-class CollectBikeController: UITableViewController {
+class CollectBikeController: UIViewController, NFCNDEFReaderSessionDelegate {
     
-    let orders = [["Reservation 1", "293749"], ["Reservation 2", "87208374"], ["Reservation 3", "836748"]]
-    
+    private let mainLabel: UILabel = UILabel.init(frame: CGRect.init(x: 0.0, y: 0.0, width: 300.0, height: 500.0))
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        setupLabel()
+        self.view.addSubview(mainLabel)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //Start new threads that will take a long time to execute
+        self.view.backgroundColor = .white
+        setupLabel()
+        let session = NFCNDEFReaderSession(delegate: self, queue: DispatchQueue(label: "queueName", attributes: .concurrent), invalidateAfterFirstRead: false)
+        session.alertMessage = "Hold Near Scanner To Unlock Bike"
+        session.begin()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+    private func setupLabel() {
+        mainLabel.text = "Scanning For Bike...."
+        mainLabel.textAlignment = .center
+        mainLabel.numberOfLines = 10
+        mainLabel.textColor = .black
+        mainLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        mainLabel.center = self.view.center
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(String(describing: orders[indexPath.row][0]))" + " - Order Number: " + "\(String(describing: orders[indexPath.row][1]))"
+    //MARK: CoreNFC Delegate
     
-        return cell
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        DispatchQueue.main.async {
+            self.mainLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            self.mainLabel.text = "Bike Unlock Failed\n\n " + error.localizedDescription
+        }
+    }
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        for message in messages {
+            for record in message.records {
+                print(record.payload)
+            }
+        }
     }
     
 }

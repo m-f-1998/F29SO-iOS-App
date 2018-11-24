@@ -10,55 +10,53 @@ import UIKit
 
 class SettingsController: UITableViewController {
     
-    private let titles: Array = [
-        ("Logged In: " + UserDefaults.standard.string(forKey: "userDetails")!),
-        "Touch-ID",
-        "Collection Notifications",
-        "Go To Website",
-        "Send App Feedback",
-        "Privacy Policy",
-        "Logout",
-        "Version Number 0.4 {3} - © Matthew Frankland 2018"
-    ]
-    private var access = [nil, UISwitch(), UISwitch(), nil, nil, nil, nil, nil, nil]
+    let touchIDSwitch = UISwitch()
+    let notificationSwitch = UISwitch()
     
-    override func viewDidLoad() {
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewDidLoad() { // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableViewSetup()
+    }
+    
+    //MARK: TableView Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch Constants.settingTitles[indexPath.row] {
+            case "Go To Website":
+                // Call Go To Website
+                break
+            case "Send App Feedback":
+                // Call Send App Feedback Address
+                break
+            case "Privacy Policy":
+                // Call Privacy Policy Address
+                break
+            case "Logout":
+                logout()
+                break
+            default:
+                print("Non-Selectable TableView Cell Called")
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // Count settings to add
+        return Constants.settingTitles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // Smaller height for copyright label
+        if indexPath.row == 7 { return 50.0 } else { return 65.0 }
+    }
+    
+    //MARK: Private Functions
+    func tableViewSetup() { // Register cells with controller delegate
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        access[0]?.isOn = UserDefaults.standard.bool(forKey: "touchIDEnabled")
+        touchIDSwitch.isOn = UserDefaults.standard.bool(forKey: "biometricsEnabled")
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
-        print("Value: \(String(describing: titles[indexPath.row]))")
-        if titles[indexPath.row] == "Logout" {
-            logout()
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
-    }
-    
-    @objc func touchID() {
-        
-        if (access[0]?.isOn)! {
-            UserDefaults.standard.set(true, forKey: "touchIDEnabled")
-        } else {
-            UserDefaults.standard.set(false, forKey: "touchIDEnabled")
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 7 {
-            return 50.0
-        }
-        return 65.0
+    @objc private func touchID() { //Set user defaults to remeber biometrics off or on
+        touchIDSwitch.isOn ? UserDefaults.standard.set(true, forKey: "biometricsEnabled") : UserDefaults.standard.set(false, forKey: "biometricsEnabled")
     }
     
     private func logout() {
@@ -70,31 +68,26 @@ class SettingsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(String(describing: titles[indexPath.row]))"
-        cell.accessoryView = access[indexPath.row]
-        access[0]?.addTarget(self, action: #selector(touchID), for: .valueChanged)
+        cell.textLabel!.text = "\(String(describing: Constants.settingTitles[indexPath.row]))"
         
         if indexPath.row == 0 {
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: 16.0)
             cell.isUserInteractionEnabled = false
-        }
-        
-        if indexPath.row == 1 || indexPath.row == 2 {
+        }else if indexPath.row == 1 {
+            cell.accessoryView = touchIDSwitch
+            touchIDSwitch.addTarget(self, action: #selector(touchID), for: .valueChanged)
             cell.selectionStyle = .none
-        }
-        
-        if indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 {
+        }else if indexPath.row == 2 {
+            cell.accessoryView = notificationSwitch
+            cell.selectionStyle = .none
+        }else if indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 {
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .blue
-        }
-        
-        if indexPath.row == 6 {
+        }else if indexPath.row == 6 {
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .red
-        }
-        
-        if indexPath.row == 7 {
+        } else {
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.numberOfLines = 2
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: 12.0)
