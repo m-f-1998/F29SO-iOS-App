@@ -105,7 +105,8 @@ class HireBikeController: FormViewController, PKPaymentAuthorizationViewControll
         }
     }
         
-    //MARK: ApplePay
+    //MARK: - ApplePay
+    
     func applePayRequest(paymentItems: [PKPaymentSummaryItem]) {
         let SupportedPaymentNetworks: [PKPaymentNetwork] = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
         let ApplePaySwagMerchantID: String = "merchant.com.matthewfrankland"
@@ -122,16 +123,16 @@ class HireBikeController: FormViewController, PKPaymentAuthorizationViewControll
         controller.dismiss(animated: true, completion: nil)
     }
     
-    //MARK: Validation
+    //MARK: - Validation
+    
     func validateInput(paymentItems: [PKPaymentSummaryItem]) {
-        print(self.form.validate())
         if self.form.validate() == [] {
             self.applePayRequest(paymentItems: paymentItems)
             let paymentController = PKPaymentAuthorizationViewController.init(paymentRequest: self.request)!
             paymentController.delegate = self
             self.present(paymentController, animated: true, completion: nil)
         } else {
-            self.alert(title: "Error In Payment", message: "All Fields Are Required To Proceed", actions:  [UIAlertAction.init(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)], style: .alert)
+            self.alert(title: "Error In Payment", message: "All Fields Are Required To Proceed", style: .alert)
         }
     }
 }

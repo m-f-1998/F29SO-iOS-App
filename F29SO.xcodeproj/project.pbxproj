@@ -11,7 +11,7 @@
 		31198488BDAA321C10914470 /* Pods_F29SO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C5283CBE40EE691F362154 /* Pods_F29SO.framework */; };
 		C5F055C18A46C90C1F32E75B /* Pods_F29SOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756CDCD3E5F380D0557128C4 /* Pods_F29SOUITests.framework */; };
 		C81E6C1E21A499EF0072C80D /* POSTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E6C1D21A499EF0072C80D /* POSTRequest.swift */; };
-		C81E6C2021A4A15E0072C80D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E6C1F21A4A15E0072C80D /* Constants.swift */; };
+		C81E6C2021A4A15E0072C80D /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E6C1F21A4A15E0072C80D /* Links.swift */; };
 		C86E44802184F4AE007D7822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E447F2184F4AE007D7822 /* AppDelegate.swift */; };
 		C86E44822184F4AE007D7822 /* LoginSplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E44812184F4AE007D7822 /* LoginSplashController.swift */; };
 		C86E44882184F4AE007D7822 /* F29SO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C86E44862184F4AE007D7822 /* F29SO.xcdatamodeld */; };
@@ -33,7 +33,7 @@
 		C86E44C02184F4CB007D7822 /* LFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E44B42184F4CB007D7822 /* LFLoginController.swift */; };
 		C86E44C22184F97D007D7822 /* edinburgh_ariel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C86E44C12184F97D007D7822 /* edinburgh_ariel.mp4 */; };
 		C8D12B28218C40970066C87B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D12B27218C40970066C87B /* Alert.swift */; };
-		C8D12B2A218C40B30066C87B /* SuccessfulLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D12B29218C40B30066C87B /* SuccessfulLogin.swift */; };
+		C8D12B2A218C40B30066C87B /* TabBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D12B29218C40B30066C87B /* TabBars.swift */; };
 		C8E2512421875DF600D04C91 /* MainMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2512321875DF600D04C91 /* MainMapController.swift */; };
 		C8E251262187A68F00D04C91 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E251252187A68F00D04C91 /* SettingsController.swift */; };
 		C8E251292187AD3E00D04C91 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E251282187AD3E00D04C91 /* TabBarController.swift */; };
@@ -79,7 +79,7 @@
 		756CDCD3E5F380D0557128C4 /* Pods_F29SOUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F29SOUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD7C9046170CB875603F572 /* Pods-F29SO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F29SO.release.xcconfig"; path = "Target Support Files/Pods-F29SO/Pods-F29SO.release.xcconfig"; sourceTree = "<group>"; };
 		C81E6C1D21A499EF0072C80D /* POSTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSTRequest.swift; sourceTree = "<group>"; };
-		C81E6C1F21A4A15E0072C80D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C81E6C1F21A4A15E0072C80D /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		C86E447C2184F4AE007D7822 /* F29SO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F29SO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86E447F2184F4AE007D7822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C86E44812184F4AE007D7822 /* LoginSplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSplashController.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		C86E44C12184F97D007D7822 /* edinburgh_ariel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = edinburgh_ariel.mp4; sourceTree = "<group>"; };
 		C8C2E2122189DA310071B693 /* F29SO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = F29SO.entitlements; sourceTree = "<group>"; };
 		C8D12B27218C40970066C87B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		C8D12B29218C40B30066C87B /* SuccessfulLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulLogin.swift; sourceTree = "<group>"; };
+		C8D12B29218C40B30066C87B /* TabBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBars.swift; sourceTree = "<group>"; };
 		C8E2512321875DF600D04C91 /* MainMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapController.swift; sourceTree = "<group>"; };
 		C8E251252187A68F00D04C91 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		C8E251282187AD3E00D04C91 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -227,8 +227,8 @@
 				C8E2512E2187B51D00D04C91 /* Biometrics.swift */,
 				C8D12B27218C40970066C87B /* Alert.swift */,
 				C81E6C1D21A499EF0072C80D /* POSTRequest.swift */,
-				C81E6C1F21A4A15E0072C80D /* Constants.swift */,
-				C8D12B29218C40B30066C87B /* SuccessfulLogin.swift */,
+				C81E6C1F21A4A15E0072C80D /* Links.swift */,
+				C8D12B29218C40B30066C87B /* TabBars.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -495,12 +495,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8E251312188604100D04C91 /* HireBikeController.swift in Sources */,
-				C81E6C2021A4A15E0072C80D /* Constants.swift in Sources */,
+				C81E6C2021A4A15E0072C80D /* Links.swift in Sources */,
 				C8E251262187A68F00D04C91 /* SettingsController.swift in Sources */,
 				C8E2512B2187B08200D04C91 /* CollectBikeController.swift in Sources */,
 				C86E44882184F4AE007D7822 /* F29SO.xcdatamodeld in Sources */,
 				C8E2512F2187B51D00D04C91 /* Biometrics.swift in Sources */,
-				C8D12B2A218C40B30066C87B /* SuccessfulLogin.swift in Sources */,
+				C8D12B2A218C40B30066C87B /* TabBars.swift in Sources */,
 				C86E44822184F4AE007D7822 /* LoginSplashController.swift in Sources */,
 				C8D12B28218C40970066C87B /* Alert.swift in Sources */,
 				C8E251292187AD3E00D04C91 /* TabBarController.swift in Sources */,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,40 +15,43 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Matthew Frankland 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUa-KL-V33">
-                                <rect key="frame" x="0.0" y="626" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PedalPay" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRi-2X-PGu">
+                                <rect key="frame" x="0.0" y="257" width="414" height="372"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="372" id="c7u-Jd-kCO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRi-2X-PGu">
-                                <rect key="frame" x="0.0" y="233" width="375" height="201"/>
-                                <string key="text">Generic Software
-Company Ltd.</string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Generic Software Company Ltd. 2018" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUa-KL-V33">
+                                <rect key="frame" x="0.0" y="828" width="414" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="jC9-ZZ-Lms"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iRi-2X-PGu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0FE-Sl-bvk"/>
-                            <constraint firstItem="uUa-KL-V33" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="49s-Bw-Elx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iRi-2X-PGu" secondAttribute="bottom" constant="233" id="78h-8E-wgN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uUa-KL-V33" secondAttribute="bottom" constant="20" id="NWl-nW-1ua"/>
-                            <constraint firstItem="iRi-2X-PGu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VAg-en-sWL"/>
-                            <constraint firstItem="uUa-KL-V33" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VfV-4x-F7E"/>
-                            <constraint firstItem="iRi-2X-PGu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="213" id="yaS-Lk-M6P"/>
+                            <constraint firstItem="iRi-2X-PGu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0Mi-us-bKs"/>
+                            <constraint firstItem="iRi-2X-PGu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="213" id="3ey-sW-EHO"/>
+                            <constraint firstItem="iRi-2X-PGu" firstAttribute="trailing" secondItem="uUa-KL-V33" secondAttribute="trailing" id="6FQ-Wf-sY1"/>
+                            <constraint firstItem="uUa-KL-V33" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mgj-Wh-w5y"/>
+                            <constraint firstItem="iRi-2X-PGu" firstAttribute="leading" secondItem="uUa-KL-V33" secondAttribute="leading" id="pWg-fS-yhW"/>
+                            <constraint firstAttribute="trailing" secondItem="iRi-2X-PGu" secondAttribute="trailing" id="vEv-cw-REr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.33035714285711"/>
         </scene>
     </scenes>
 </document>

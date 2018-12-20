@@ -357,7 +357,6 @@ public class LFLoginController: UIViewController {
         let loginY = CGFloat(130 + 40)
         let loginWidth = self.view.bounds.width - 40
         let loginHeight: CGFloat = self.view.bounds.height - loginY - 30
-        print(loginHeight)
         
         loginView = UIView(frame: CGRect(x: loginX, y: loginY, width: loginWidth, height: loginHeight))
     }

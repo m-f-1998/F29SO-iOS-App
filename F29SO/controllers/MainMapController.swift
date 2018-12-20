@@ -27,14 +27,14 @@ class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    //MARK: MapView Delegate
+    //MARK: - MapView Delegate
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) { // Location selected for hiring bike
         let hireController = HireBikeController() as HireBikeController
         hireController.selectedLocation = (view.annotation!.title)!!
         self.navigationController?.pushViewController(hireController, animated: true)
     }
     
-    //MARK: Private Functions
     private func setupMapKit() { //Initial setup of map upon logging in
         self.mapView = MKMapView(frame: CGRect.init(x: 0, y: 0, width: (UIApplication.shared.keyWindow?.bounds.width)!, height: (UIApplication.shared.keyWindow?.bounds.height)!))
         setRegion(lat: CLLocationDegrees.init(55.9533), long: CLLocationDegrees.init(-3.188267))
@@ -62,17 +62,16 @@ class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    private func getAnnotations() { // Set bike stand locations in Edinburgh as markouts
-        let dismissAction = UIAlertAction.init(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
-        DispatchQueue.main.async { self.activityIndicatorAlert() }
-        sendRequest(Constants.locationsURL, method: .post, parameters: [:], completionHandler: { (data, response, error) in
+    private func getAnnotations() { // Set bike stand locations as markouts
+        DispatchQueue.main.async { self.activityIndicatorAlert(title: "Updating App Data", message: "Please Wait...", style: .alert) }
+        sendRequest(OutputURL.locationsURL, method: .post, parameters: [:], completionHandler: { (data, response, error) in
             guard let data = data else { return }
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : Any]
                 let locations = json["message"] as! NSArray
                 self.updateAnnotations(locData: locations)
             } catch let error as NSError {
-                self.alert(title: "Fatal Error In Annotation Markup", message: error.description, actions: [dismissAction], style: UIAlertController.Style.alert)
+                self.alert(title: "Fatal Error In Annotation Markup", message: error.description, style: UIAlertController.Style.alert)
             }
         })?.resume()
     }

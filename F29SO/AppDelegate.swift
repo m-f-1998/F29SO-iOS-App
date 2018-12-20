@@ -14,20 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func goToLogin(controller: LoginSplashController) {
-        controller.videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "edinburgh_ariel", ofType: "mp4")!)
-        UIView.transition(with: window!, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            self.window?.rootViewController = controller
-            self.window?.makeKeyAndVisible()
-            print("Biomatrics Enabled: " + String(UserDefaults.standard.bool(forKey: "biometricsEnabled")));
-        }, completion: nil)
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let loginController : LoginSplashController = LoginSplashController() as LoginSplashController
-        goToLogin(controller: loginController)
+        goToLogin(controller: LoginSplashController())
         return true
     }
 
@@ -100,6 +90,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    // MARK: - Private Functions
+    
+    private func goToLogin(controller: LoginSplashController) {
+        controller.videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "edinburgh_ariel", ofType: "mp4")!)
+        UIView.transition(with: window!, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }, completion: nil)
     }
 
 }

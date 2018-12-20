@@ -39,7 +39,7 @@ class CollectBikeController: UIViewController, NFCNDEFReaderSessionDelegate {
         mainLabel.center = self.view.center
     }
     
-    //MARK: CoreNFC Delegate
+    //MARK: - CoreNFC Delegate
     
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
         DispatchQueue.main.async {
