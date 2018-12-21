@@ -6,7 +6,7 @@
 //  Copyright © 2018 Matthew Frankland. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIViewController
 
 extension UIViewController {
 
@@ -48,7 +48,6 @@ extension UIViewController {
             title: ["Hire", "Collect"],
             image: [UIImage.init(named: "bike_logo")!, UIImage(named: "hire_logo")!]
         )
-        
         for i in 0...tabBarItems.count-1 {
             tabControllers[i].tabBarItem = tabBarItems[i]
         }

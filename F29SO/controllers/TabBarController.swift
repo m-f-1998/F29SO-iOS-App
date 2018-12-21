@@ -6,14 +6,13 @@
 //  Copyright © 2018 Matthew Frankland. All rights reserved.
 //
 
-import UIKit
+import UIKit.UITabBarController
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate  {
-        
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        self.navigationController?.navigationBar.barTintColor = .black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+    
+    //MARK: - TableView Delegate
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) { // Add Tab Bar To Global Controller
         switch item.tag {
             case 0:
                 self.navigationController?.navigationBar.topItem?.title = "Hire A Bike"
@@ -22,7 +21,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate  {
             case 2:
                 self.navigationController?.navigationBar.topItem?.title = "Settings"
             default:
-                print("Default Nav Controller Item Called")
+                NSLog("Tab Bar Controller Not Recognised - Can't Sent Title")
         }
     }
     

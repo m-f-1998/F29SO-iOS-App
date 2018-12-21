@@ -238,9 +238,9 @@
 			children = (
 				C86E44812184F4AE007D7822 /* LoginSplashController.swift */,
 				C8E2512321875DF600D04C91 /* MainMapController.swift */,
-				C8E251252187A68F00D04C91 /* SettingsController.swift */,
 				C8E251282187AD3E00D04C91 /* TabBarController.swift */,
 				C8E2512A2187B08200D04C91 /* CollectBikeController.swift */,
+				C8E251252187A68F00D04C91 /* SettingsController.swift */,
 				C8E251302188604100D04C91 /* HireBikeController.swift */,
 			);
 			path = controllers;

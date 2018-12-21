@@ -20,7 +20,7 @@ extension UIViewController {
             localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reasonString) {
                 success, evaluateError in
                     if success { // User authenticated successfully, take appropriate action
-                        self.rootContTransition(rootCont: TabBarController(), navBarTitle: "Hire a Bike")
+                        self.rootContTransition(rVC: TabBarController(), navBarTitle: "Hire a Bike")
                     } else { // User did not authenticate successfully, look at error and take appropriate action
                         guard let error: Error = evaluateError else { return }
                         self.logError(error_code: error._code, alert: false)

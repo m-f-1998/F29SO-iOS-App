@@ -6,12 +6,12 @@
 //  Copyright © 2018 Matthew Frankland. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIViewController
 import MapKit
 
 class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var mapView: MKMapView?
+    private var mapView: MKMapView?
 
     override func viewDidLoad() { // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
@@ -35,6 +35,8 @@ class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.pushViewController(hireController, animated: true)
     }
     
+    //MARK: - Setup Functions
+    
     private func setupMapKit() { //Initial setup of map upon logging in
         self.mapView = MKMapView(frame: CGRect.init(x: 0, y: 0, width: (UIApplication.shared.keyWindow?.bounds.width)!, height: (UIApplication.shared.keyWindow?.bounds.height)!))
         setRegion(lat: CLLocationDegrees.init(55.9533), long: CLLocationDegrees.init(-3.188267))
@@ -47,6 +49,8 @@ class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.setRegion((mapView?.regionThatFits(viewRegion))!, animated: true)
         self.mapView!.showsUserLocation = true
     }
+    
+    //MARK: - Extenal Annotation Data Call
     
     private func updateAnnotations(locData: NSArray) { // Called async when update annotations
         for i in 0...locData.count-1 {

@@ -6,27 +6,30 @@
 //  Copyright © 2018 Matthew Frankland. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIViewController
 import CoreNFC
 
 class CollectBikeController: UIViewController, NFCNDEFReaderSessionDelegate {
     
     private let mainLabel: UILabel = UILabel.init(frame: CGRect.init(x: 0.0, y: 0.0, width: 300.0, height: 500.0))
 
-    override func viewDidLoad() {
+    override func viewDidLoad() { // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        setupLabel()
+        self.view.backgroundColor = .white
         self.view.addSubview(mainLabel)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) { //Start new threads that will take a long time to execute
         super.viewDidAppear(true)
-        //Start new threads that will take a long time to execute
-        self.view.backgroundColor = .white
         setupLabel()
-        let session = NFCNDEFReaderSession(delegate: self, queue: DispatchQueue(label: "queueName", attributes: .concurrent), invalidateAfterFirstRead: false)
-        session.alertMessage = "Hold Near Scanner To Unlock Bike"
+        setupSession(queueName: "tempQueue", invalidateAfterFirst: true, attribute: .concurrent, alertMessage: "Hold Near Scanner to Unlock Bike")
+    }
+    
+    //MARK: - Setup Functions
+    
+    private func setupSession(queueName: String, invalidateAfterFirst: Bool, attribute: DispatchQueue.Attributes, alertMessage: String) {
+        let session = NFCNDEFReaderSession(delegate: self, queue: DispatchQueue(label: queueName, attributes: attribute), invalidateAfterFirstRead: invalidateAfterFirst)
+        session.alertMessage = alertMessage
         session.begin()
     }
     
