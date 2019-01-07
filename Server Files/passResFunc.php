@@ -8,7 +8,7 @@
         $db = new DbConnect ();
         $conn = $db->connect ();
         
-        $stmt = $conn->prepare("SELECT `fp_code` FROM passwordreset WHERE fp_code = ?;");
+        $stmt = $conn->prepare("SELECT `fp_code` FROM accountreset WHERE fp_code = ?;");
         $stmt->bind_param("s", $_POST['id']);
         $stmt->execute();
         $stmt->store_result();
@@ -24,7 +24,7 @@
                 $stmt->bind_param ("ss", $_POST['password'], $_POST['email']) ;
                 $stmt->execute () ;
                 
-                $stmt = $conn->prepare ("DELETE FROM passwordreset WHERE fp_code = ?;");
+                $stmt = $conn->prepare ("DELETE FROM accountreset WHERE fp_code = ?;");
                 $stmt->bind_param ("s", $_POST['id']) ;
                 $stmt->execute () ;
                 

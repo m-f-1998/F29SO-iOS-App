@@ -54,7 +54,7 @@ class dbOperation {
             $headers = "MIME-Version: 1.0" . "\r\nContent-type:text/html;charset=UTF-8" . "\r\nFrom: PedalPay<noReply@pedalpay.com>" . "\r\n" ;
             $mailContent = 'Recently a request was submitted to reset a password for your account. If this was a mistake, please destroy this email without any further action.<br/>To reset your password, visit the following link: <a href="'.$uniqueLink.'">'.$uniqueLink.'</a><br/><br/>Regards,<br/>Pedal Pay' ;
             
-            $stmt = $this->conn->prepare("INSERT INTO passwordreset VALUES (?, UNIX_TIMESTAMP());") ;
+            $stmt = $this->conn->prepare("INSERT INTO accountreset VALUES (?, UNIX_TIMESTAMP());") ;
             $stmt->bind_param("s", $code) ;
             $stmt->execute() ;
             mail($email,$subject,$mailContent,$headers) ;
