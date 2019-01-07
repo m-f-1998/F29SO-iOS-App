@@ -24,7 +24,7 @@
             <input type="password" name="password" placeholder="NEW PASSWORD" required="">
             <input type="password" name="confirm_password" placeholder="CONFIRM PASSWORD" required="">
             <div class="send-button">
-                <input type="hidden" name="id" value="<?php echo $_REQUEST['id']; ?>"/>
+                <input type="hidden" name="id" value="<?php echo $_REQUEST['fp_code']; ?>"/>
                 <input type="submit" name="resetSubmit" value="RESET PASSWORD">
             </div>
         </form>
