@@ -8,7 +8,7 @@ class dbConnect {
 
     function connect () {
         
-        require_once $_SERVER['DOCUMENT_ROOT'].'/login/pedalPay/dbConnection/constants.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/pedalPay/dbConnection/constants.php';
 
         $this->conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
