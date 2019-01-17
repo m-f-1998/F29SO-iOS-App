@@ -8,6 +8,18 @@
 
 import UIKit.UIViewController
 
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .lightContent
+    }
+}
+
+extension UIImagePickerController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}
+
 extension UIViewController {
 
     func generateTabBar(title: [String], image: [UIImage]) -> [UITabBarItem] { // Generate Items for Global Tab Bar
@@ -30,6 +42,7 @@ extension UIViewController {
             self.setupNavCont(nvCont: nvC, title: navBarTitle)
             
             UIView.transition(with: UIApplication.shared.keyWindow!, duration: 0.4, options: .transitionCrossDissolve, animations: { // Dissolve Transition Is More Fluid
+                rVC.setNeedsStatusBarAppearanceUpdate()
                 UIApplication.shared.keyWindow?.rootViewController = nvC
                 UIApplication.shared.keyWindow?.makeKeyAndVisible()
             }, completion: nil)
@@ -39,6 +52,7 @@ extension UIViewController {
     private func setupNavCont(nvCont: UINavigationController, title: String) { // Main Nav Cont Before Transition - Global For Tabs
         nvCont.navigationBar.topItem?.title = title
         nvCont.navigationBar.barTintColor = .black
+        nvCont.navigationBar.tintColor = .white
         nvCont.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     

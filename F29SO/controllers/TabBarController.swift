@@ -10,6 +10,15 @@ import UIKit.UITabBarController
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate  {
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidLoad() { // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(statusManager), name: .flagsChanged, object: Network.reachability)
+        updateUserInterface()
+    }
+    
     //MARK: - TableView Delegate
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) { // Add Tab Bar To Global Controller
@@ -23,6 +32,31 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate  {
             default:
                 NSLog("Tab Bar Controller Not Recognised - Can't Sent Title")
         }
+    }
+    
+    //MARK: - Helper Functions
+    
+    func updateUserInterface() { // Update User Controller If Network Status Changes
+        guard let status = Network.reachability?.status else { return }
+        switch status {
+        case .unreachable:
+            DispatchQueue.main.async {
+                let controller = NoConnection()
+                UIView.transition(with: UIApplication.shared.keyWindow!, duration: 0.7, options: .transitionCrossDissolve, animations: {
+                    controller.setNeedsStatusBarAppearanceUpdate()
+                    UIApplication.shared.keyWindow?.rootViewController = controller
+                    UIApplication.shared.keyWindow?.makeKeyAndVisible()
+                }, completion: nil)
+            }
+        case .wifi:
+            break
+        case .wwan:
+            break
+        }
+    }
+    
+    @objc func statusManager(_ notification: Notification) {
+        updateUserInterface()
     }
     
 }

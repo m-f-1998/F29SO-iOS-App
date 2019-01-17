@@ -27,8 +27,8 @@ extension UIViewController {
     func sendRequest(_ url: String, method: RESTMethod, parameters: [String : Any], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionTask! { //Make generic POST request
         let requestURL: URL = URL(string: url)!
         let parameterString: Data? = getPostString(params: parameters).data(using: .utf8)
-        var request = URLRequest(url: requestURL)
         
+        var request = URLRequest(url: requestURL)
         request.httpBody = parameterString
         request.httpMethod = method.rawValue
         

@@ -8,22 +8,27 @@
 
 import UIKit.UIViewController
 import MapKit
+import KeychainAccess
 
 class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     private var mapView: MKMapView?
-
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() { // Do any additional setup after loading the view, typically from a nib.
-        super.viewDidLoad()
         setupMapKit() // Initial mapView setup
         self.mapView?.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) { //Start new threads that will take a long time to execut
         super.viewDidAppear(true)
-        for i in 0...(mapView?.annotations.count)! - 1 {  // Deselect all annotations in case trying to hire bike
-            let annotation = mapView?.annotations[i]
-            mapView?.deselectAnnotation(annotation!, animated: true)
+        if (mapView?.annotations.count)! > 0 {
+            for i in 0...(mapView?.annotations.count)! - 1 {  // Deselect all annotations in case trying to hire bike
+                let annotation = mapView?.annotations[i]
+                mapView?.deselectAnnotation(annotation!, animated: true)
+            }
         }
     }
     
@@ -67,17 +72,22 @@ class MainMapController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     private func getAnnotations() { // Set bike stand locations as markouts
-        DispatchQueue.main.async { self.activityIndicatorAlert(title: "Updating App Data", message: "Please Wait...", style: .alert) }
-        sendRequest(OutputURL.locationsURL, method: .post, parameters: [:], completionHandler: { (data, response, error) in
-            guard let data = data else { return }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : Any]
-                let locations = json["message"] as! NSArray
-                self.updateAnnotations(locData: locations)
-            } catch let error as NSError {
-                self.alert(title: "Fatal Error In Annotation Markup", message: error.description, style: UIAlertController.Style.alert)
-            }
-        })?.resume()
+        let locationsURL: String = "http://www.matthewfrankland.co.uk/pedalPay/userFunctions/locations.php"
+        do {
+            let password = try Keychain(service:Bundle.main.object(forInfoDictionaryKey: "KaychainGroup") as! String).synchronizable(true).get(UserDefaults.standard.string(forKey: "userDetails")!)
+            sendRequest(locationsURL, method: .post, parameters: ["email": UserDefaults.standard.string(forKey: "userDetails")!, "password": password!], completionHandler: { (data, response, error) in
+                guard let data = data else { return }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : Any]
+                    let locations = json["message"] as! NSArray
+                    self.updateAnnotations(locData: locations)
+                } catch let error as NSError {
+                    self.alert(title: "Fatal Error In Annotation Markup", message: error.description, style: UIAlertController.Style.alert)
+                }
+            })?.resume()
+        } catch {
+            fatalError("Error fetching password items - \(error)")
+        }
     }
-    
+        
 }

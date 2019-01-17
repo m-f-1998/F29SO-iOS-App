@@ -1,0 +1,28 @@
+PODS:
+  - Eureka (4.3.1)
+  - KeychainAccess (3.1.2)
+  - OneSignal (2.9.5)
+  - Stripe (14.0.0)
+
+DEPENDENCIES:
+  - Eureka
+  - KeychainAccess
+  - OneSignal (< 3.0, >= 2.6.2)
+  - Stripe
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Eureka
+    - KeychainAccess
+    - OneSignal
+    - Stripe
+
+SPEC CHECKSUMS:
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  OneSignal: ccdeb961882f8668305e5b694e2cb7cb325fc907
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
+
+PODFILE CHECKSUM: d06c5d77d38b841cb112d005cbd4309223645c23
+
+COCOAPODS: 1.6.0.beta.2

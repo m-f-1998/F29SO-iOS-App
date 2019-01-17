@@ -13,5 +13,9 @@
 	<array>
 		<string>NDEF</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.mfrankland.F29SO</string>
+	</array>
 </dict>
 </plist>

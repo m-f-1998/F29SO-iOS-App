@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import OneSignal
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        goToLogin(controller: LoginSplashController())
+        let login: LoginSplashController = LoginSplashController()
+        do {
+            Network.reachability = try Reachability(hostname: "www.google.com")
+            do {
+                try Network.reachability?.start()
+            } catch let error as Network.Error {
+                print(error)
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+        externalsSetup(launchOptions: launchOptions)
+        login.videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "edinburgh_ariel", ofType: "mp4")!)
+        goToLogin(controller: login)
         return true
     }
 
@@ -95,11 +112,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private Functions
     
     private func goToLogin(controller: LoginSplashController) {
-        controller.videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "edinburgh_ariel", ofType: "mp4")!)
-        UIView.transition(with: window!, duration: 0.4, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: window!, duration: 0.7, options: .transitionCrossDissolve, animations: {
             self.window?.rootViewController = controller
             self.window?.makeKeyAndVisible()
         }, completion: nil)
+    }
+    
+    private func externalsSetup(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_ZOXIw0ioiX2rDM0yyhAw4DJA"
+        STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.com.matthewfrankland.stripe"
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        OneSignal.initWithLaunchOptions(launchOptions, appId: "8a814a45-6e8f-4718-abc2-659f7a014c31", handleNotificationAction: nil, settings: onesignalInitSettings)
+        OneSignal.setSubscription(true)
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User Accepted Notifications: \(accepted)")
+        })
     }
 
 }
