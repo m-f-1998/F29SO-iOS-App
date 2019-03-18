@@ -13,11 +13,13 @@
 		C5F055C18A46C90C1F32E75B /* Pods_F29SOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756CDCD3E5F380D0557128C4 /* Pods_F29SOUITests.framework */; };
 		C81E6C1E21A499EF0072C80D /* POSTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E6C1D21A499EF0072C80D /* POSTRequest.swift */; };
 		C83B49C221E3561F00BB86EA /* edinburgh_ariel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C8183BAC21D3C3DA002A2D15 /* edinburgh_ariel.mp4 */; };
+		C8434D5C223D60D800FECEDC /* UpdateDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8434D5B223D60D800FECEDC /* UpdateDetails.swift */; };
+		C8434D5E223E465900FECEDC /* CurrentBookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8434D5D223E465900FECEDC /* CurrentBookings.swift */; };
 		C867638521ED1A5A00F88907 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C867638421ED1A5A00F88907 /* Security.framework */; };
 		C867639221EDE4F000F88907 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867639121EDE4F000F88907 /* NotificationService.swift */; };
 		C867639621EDE4F000F88907 /* OneSignalNotificationExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C867638F21EDE4F000F88907 /* OneSignalNotificationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C867639E21F07B0200F88907 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867639D21F07B0200F88907 /* Reachability.swift */; };
 		C86763A021F07D8600F88907 /* NoConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867639F21F07D8600F88907 /* NoConnection.swift */; };
+		C86763A321F5E27000F88907 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86763A221F5E27000F88907 /* Reachability.swift */; };
 		C86E44802184F4AE007D7822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E447F2184F4AE007D7822 /* AppDelegate.swift */; };
 		C86E44822184F4AE007D7822 /* LoginSplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E44812184F4AE007D7822 /* LoginSplashController.swift */; };
 		C86E44882184F4AE007D7822 /* F29SO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C86E44862184F4AE007D7822 /* F29SO.xcdatamodeld */; };
@@ -45,6 +47,7 @@
 		C8E2512B2187B08200D04C91 /* CollectBikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2512A2187B08200D04C91 /* CollectBikeController.swift */; };
 		C8E2512F2187B51D00D04C91 /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2512E2187B51D00D04C91 /* Biometrics.swift */; };
 		C8E251312188604100D04C91 /* HireBikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E251302188604100D04C91 /* HireBikeController.swift */; };
+		C8FBA5D421FE114800C181FB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FBA5D321FE114800C181FB /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,12 +108,14 @@
 		8CD7C9046170CB875603F572 /* Pods-F29SO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F29SO.release.xcconfig"; path = "Target Support Files/Pods-F29SO/Pods-F29SO.release.xcconfig"; sourceTree = "<group>"; };
 		C8183BAC21D3C3DA002A2D15 /* edinburgh_ariel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = edinburgh_ariel.mp4; sourceTree = "<group>"; };
 		C81E6C1D21A499EF0072C80D /* POSTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSTRequest.swift; sourceTree = "<group>"; };
+		C8434D5B223D60D800FECEDC /* UpdateDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetails.swift; sourceTree = "<group>"; };
+		C8434D5D223E465900FECEDC /* CurrentBookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBookings.swift; sourceTree = "<group>"; };
 		C867638421ED1A5A00F88907 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C867638F21EDE4F000F88907 /* OneSignalNotificationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C867639121EDE4F000F88907 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		C867639321EDE4F000F88907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C867639D21F07B0200F88907 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../../../../Downloads/Reachability/Reachability.swift; sourceTree = "<group>"; };
 		C867639F21F07D8600F88907 /* NoConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnection.swift; sourceTree = "<group>"; };
+		C86763A221F5E27000F88907 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C86E447C2184F4AE007D7822 /* F29SO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F29SO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86E447F2184F4AE007D7822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C86E44812184F4AE007D7822 /* LoginSplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSplashController.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 		C8E2512A2187B08200D04C91 /* CollectBikeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectBikeController.swift; sourceTree = "<group>"; };
 		C8E2512E2187B51D00D04C91 /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
 		C8E251302188604100D04C91 /* HireBikeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HireBikeController.swift; sourceTree = "<group>"; };
+		C8FBA5D321FE114800C181FB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		DB829034C427BAD171171106 /* Pods_F29SOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F29SOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E4D92DD10D03CD2352CD0 /* Pods-F29SOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F29SOTests.release.xcconfig"; path = "Target Support Files/Pods-F29SOTests/Pods-F29SOTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECFB0F685B81DD5EBADE49DF /* Pods_F29SO_OneSignalNotificationExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F29SO_OneSignalNotificationExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +210,14 @@
 			path = OneSignalNotificationExtension;
 			sourceTree = "<group>";
 		};
+		C86763A121F5E26400F88907 /* Network Test */ = {
+			isa = PBXGroup;
+			children = (
+				C86763A221F5E27000F88907 /* Reachability.swift */,
+			);
+			path = "Network Test";
+			sourceTree = "<group>";
+		};
 		C86E44732184F4AE007D7822 = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +249,7 @@
 				C86E44962184F4AF007D7822 /* F29SOTests */,
 				C8D12B26218C40680066C87B /* Extensions */,
 				C8E251272187A6DE00D04C91 /* Controllers */,
+				C86763A121F5E26400F88907 /* Network Test */,
 				C86E44B02184F4BA007D7822 /* Login Bootstrap */,
 				C86E44892184F4AF007D7822 /* Assets.xcassets */,
 				C86E448B2184F4AF007D7822 /* LaunchScreen.storyboard */,
@@ -281,7 +296,7 @@
 				C8D12B27218C40970066C87B /* Alert.swift */,
 				C81E6C1D21A499EF0072C80D /* POSTRequest.swift */,
 				C8D12B29218C40B30066C87B /* TabBars.swift */,
-				C867639D21F07B0200F88907 /* Reachability.swift */,
+				C8FBA5D321FE114800C181FB /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +311,8 @@
 				C8E251252187A68F00D04C91 /* SettingsController.swift */,
 				C8E251302188604100D04C91 /* HireBikeController.swift */,
 				C867639F21F07D8600F88907 /* NoConnection.swift */,
+				C8434D5B223D60D800FECEDC /* UpdateDetails.swift */,
+				C8434D5D223E465900FECEDC /* CurrentBookings.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -405,9 +422,11 @@
 				TargetAttributes = {
 					C867638E21EDE4F000F88907 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C86E447B2184F4AE007D7822 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
 								enabled = 1;
@@ -631,17 +650,20 @@
 				C8E251262187A68F00D04C91 /* SettingsController.swift in Sources */,
 				C8E2512B2187B08200D04C91 /* CollectBikeController.swift in Sources */,
 				C86E44882184F4AE007D7822 /* F29SO.xcdatamodeld in Sources */,
+				C8434D5E223E465900FECEDC /* CurrentBookings.swift in Sources */,
 				C8E2512F2187B51D00D04C91 /* Biometrics.swift in Sources */,
 				C8D12B2A218C40B30066C87B /* TabBars.swift in Sources */,
 				C86763A021F07D8600F88907 /* NoConnection.swift in Sources */,
-				C867639E21F07B0200F88907 /* Reachability.swift in Sources */,
 				C86E44822184F4AE007D7822 /* LoginSplashController.swift in Sources */,
 				C8D12B28218C40970066C87B /* Alert.swift in Sources */,
 				C8E251292187AD3E00D04C91 /* TabBarController.swift in Sources */,
 				C86E44802184F4AE007D7822 /* AppDelegate.swift in Sources */,
+				C8FBA5D421FE114800C181FB /* Color.swift in Sources */,
 				C8E2512421875DF600D04C91 /* MainMapController.swift in Sources */,
 				C81E6C1E21A499EF0072C80D /* POSTRequest.swift in Sources */,
 				C86E44BE2184F4CB007D7822 /* LFLoginController.swift in Sources */,
+				C8434D5C223D60D800FECEDC /* UpdateDetails.swift in Sources */,
+				C86763A321F5E27000F88907 /* Reachability.swift in Sources */,
 				C86E44BB2184F4CB007D7822 /* AutoCompleteTextField.swift in Sources */,
 				C86E44B82184F4CB007D7822 /* AutoCompleteTextFieldConstants.swift in Sources */,
 				C86E44B52184F4CB007D7822 /* AutoCompleteTextFieldProtocols.swift in Sources */,
@@ -720,7 +742,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mfrankland.F29SO.OneSignalNotificationExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -741,7 +763,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mfrankland.F29SO.OneSignalNotificationExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -879,7 +901,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mfrankland.F29SO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -901,7 +923,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mfrankland.F29SO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

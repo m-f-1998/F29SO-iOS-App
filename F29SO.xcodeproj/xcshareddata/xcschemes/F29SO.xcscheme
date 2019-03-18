@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C86E44922184F4AF007D7822"
-               BuildableName = "F29SOTests.xctest"
-               BlueprintName = "F29SOTests"
-               ReferencedContainer = "container:F29SO.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C86E449D2184F4AF007D7822"
-               BuildableName = "F29SOUITests.xctest"
-               BlueprintName = "F29SOUITests"
-               ReferencedContainer = "container:F29SO.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
